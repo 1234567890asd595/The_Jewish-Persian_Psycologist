@@ -1,0 +1,83 @@
+                if last_question2 == last_question3 and last_question3 == '∞' and 'hello' not in last_question1.lower() and  'hi' not in last_question1.lower() and  'good' not in last_question1.lower() and 'fine' not in last_question1.lower() and 'shalom' not in last_question1.lower():
+                    if 'you' in last_question1.lower() and 'problem' in last_question1.lower():
+                        resp = random.choice([ "No you are the problem!", "You know that is very insulting!"])
+                    else:    
+                        resp = random.choice(["Don't you ever say hello?", 'You know that you could be polite and say "Hello"', "Not fair! I greeted you why aren't you greeting me?"])
+                elif last_question2 == last_question3 and last_question3 == '∞' :
+                    if 'hello' in last_question1.lower() or  'hi' in last_question1.lower() or  'good' in last_question1.lower() or 'you' in last_question1.lower() or 'shalom' in last_question1.lower() or 'fine' in last_question1.lower() or 'ok' in last_question1.lower():
+                        resp = random.choice(["Hello... I'm glad you could drop by today. What's your problem?",
+                                            "Hi there... how are you today? What's the problem?",
+                                            "Hello, how are you feeling today? Please explain with detail why have you come here!",
+                                            "Hello my name is Eliza, wht's your's? I'm happy to hear you found me!"])
+                    
+
+                if last_question1 == last_question2 and last_question2 == last_question3 and last_question2.lower() == 'no':
+                    resp = random.choice(['You are a little bit negitive because you are saying no so much you could be a little positive', 'Do you actually think being negitive will help us go on?', 'Stop saying no! What about a little bit of agreement?'])
+                elif last_question1 == last_question2 and last_question2 == last_question3:
+                    resp = random.choice(["Please don't repeate yourself!", "Do you really think repeating youreself will help us mave forward?",
+                                         "Oh please! you'r not repeating youreself again right?", f"can't you think of anything else to say execept {last_question1}?"])
+
+                elif last_answer == "I don't understand. want falafel?":
+                    if 'yes' in last_question1.lower() or 'ok' in last_question1.lower() or 'shur' in last_question1.lower() or ('i' in last_question1.lower() and 'want' in last_question1.lower()) or 'of course' in last_question1.lower():
+                        resp = """Ok! I like falafel follow the link to buy: https://israelbusinessguide.com/catalog/ierusalim/shalom_falafel_jerusalem/"""
+                        try:
+                            webbrowser.open('https://israelbusinessguide.com/catalog/ierusalim/shalom_falafel_jerusalem/')
+                        except:
+                            no_internet()
+                    elif 'no' in last_question1.lower():
+                        resp = 'I am sad you do not like falafel. I heighly recommend you to try!'
+                    else:
+                        resp = "I guess you'r not hungry..."
+                
+                elif last_answer == "I don't understand. want a taco?":
+                    if 'yes' in last_question1.lower() or 'ok' in last_question1.lower() or 'shur' in last_question1.lower() or ('i' in last_question1.lower() and 'want' in last_question1.lower()) or 'of course' in last_question1.lower():
+                        resp = r"""Ok! I like tacos follow the link to buy: https://www.eastwest-stores.co.il/he/%D7%9E%D7%95%D7%A6%D7%A8%D7%99%D7%9D/%D7%9E%D7%A7%D7%A1%D7%99%D7%A7%D7%A0%D7%99/product/364-ortega-yellow-corn-taco-246g"""
+                        try:
+                            webbrowser.open(r'https://www.eastwest-stores.co.il/he/%D7%9E%D7%95%D7%A6%D7%A8%D7%99%D7%9D/%D7%9E%D7%A7%D7%A1%D7%99%D7%A7%D7%A0%D7%99/product/364-ortega-yellow-corn-taco-246g')
+                        except:
+                            no_internet()
+                    elif 'no' in last_question1.lower():
+                        resp = 'I am sad you do not like tacos. I heighly recommend you to try!'
+                    else:
+                        resp = "I guess you'r not hungry..."
+                
+                elif last_answer == "I don't understand. want chicken?":
+                    if 'yes' in last_question1.lower() or 'ok' in last_question1.lower() or 'shur' in last_question1.lower() or ('i' in last_question1.lower() and 'want' in last_question1.lower()) or 'of course' in last_question1.lower():
+                        resp = r"""Ok! I like chicken to fallow the link to buy: https://easy.co.il/en/page/10080774"""
+                        try:
+                            webbrowser.open(r'https://easy.co.il/en/page/10080774')
+                            webbrowser.open(r'https://media.easy.co.il/images/MenuPics/10098468_1637584135775.jpeg')
+                        except:
+                            no_internet()
+                    elif 'no' in last_question1.lower():
+                        resp = 'I am sad you do not like chicken. I heighly recommend you to try!'
+                    else:
+                        resp = "I guess you'r not hungry..."
+
+                elif last_answer == "Hello my name is Eliza, what's yours?":
+                    resp = f'Hello {last_question1}!'
+                    user_name = last_question1
+
+                elif last_answer == "Try thinking a little do you want to medidate?":
+                    if 'yes' in last_question1:
+                        resp = """Happy meditating!"""
+                    else:
+                        resp = "Ok, let's try find a different solution."
+
+                elif last_answer == """Happy meditating!""":
+                    resp == 'How was it to meditate? did you find a answer to your question?'
+
+                elif last_answer == 'How was it to meditate? did you find a answer to your question?' and 'yes' in last_question1.lower():
+                    resp = 'Great!'
+                
+                elif last_answer == last_question1:
+                    resp = random.choice(["Hey! don't repeate me!", "Do not repeate anything!", "Do you know that my answeres have copyright? They are very unique!"])
+                
+                elif last_answer == "My name is Eliza what is your name?":
+                    resp = f'Hello {last_question1}'
+                
+                elif 'https://www.' in resp:
+                    try:
+                        webbrowser.open(resp[resp.find('https://www.', 0, len(resp)-1):])
+                    except:
+                        no_internet()
