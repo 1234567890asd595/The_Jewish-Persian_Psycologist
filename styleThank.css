@@ -1,0 +1,36 @@
+body.index {
+    background-image: url("thankBackground.png");
+    position: absolute;
+    background-clip: border-box;
+    background-size: cover;
+    min-height: auto;
+    height: 100%;
+
+    
+}
+body::before {
+
+
+    background-size: cover;
+    background-clip: border-box;
+
+}
+
+.text {
+    color: whitesmoke;
+}
+
+div.imageContainer {
+    display: flex;
+}
+img.E31ImgInstruct {
+    width: 20vw;
+    height: 25vh;
+}
+button.DownloadInructButton {
+    color: blue;
+    background-color: yellow;
+    width: 200px;
+    height: 100px;
+    border-radius: 15%;
+}
